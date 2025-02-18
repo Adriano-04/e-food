@@ -11,9 +11,7 @@ export const Card = styled.div<Omit<Props, 'nome' | 'descricao' | 'imagem' | 'no
     height: ${props => props.estilo === 'perfil' ? '350px' : '400px'};
     overflow: hidden;
     position: relative;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
 `
 export const TextoPrincipal = styled.h3`
     font-size: 18px;
@@ -40,7 +38,7 @@ export const BotaoSobre = styled.a<Omit<Props, 'nome' | 'descricao' | 'imagem' |
     background-color: ${props => props.estilo === 'perfil' ? Cores.fundo : Cores.laranja};
     font-size: 14px;
     font-weight: bold;
-    margin: 8px;
+    margin-left: 8px;
     cursor: pointer;
     width: ${props => props.estilo === 'perfil' ? '100%' : '92px'};
 `
