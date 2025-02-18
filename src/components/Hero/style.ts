@@ -22,4 +22,8 @@ export const Titulo = styled.h1`
     color: ${Cores.laranja};
     text-align: center;
     margin-top: 120px;
+
+    @media (max-width: 768px) {
+        font-size: 24px;
+    }
 `

@@ -40,7 +40,7 @@ export const BotaoSobre = styled.a<Omit<Props, 'nome' | 'descricao' | 'imagem' |
     background-color: ${props => props.estilo === 'perfil' ? Cores.fundo : Cores.laranja};
     font-size: 14px;
     font-weight: bold;
-    margin: 6px;
+    margin: 8px;
     cursor: pointer;
     width: ${props => props.estilo === 'perfil' ? '100%' : '92px'};
 `
