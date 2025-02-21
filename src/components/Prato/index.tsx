@@ -1,5 +1,6 @@
 import { BotaoSobre, Card, Div, Tag, Tags, Texto, TextoPrincipal } from "./style";
 import Estrela from '../../assets/images/star_favorite.svg'
+import { Link } from "react-router-dom";
 
 export type Props = {
     nome: string
@@ -29,7 +30,7 @@ const Prato = ({nome, descricao, imagem, nota, estilo, infos}: Props) => (
                  )}
             </Div>
             <Texto>{descricao}</Texto>
-            <BotaoSobre estilo={estilo}>
+            <BotaoSobre as={Link} to='/perfil' estilo={estilo}>
                 {estilo === 'perfil' ? 'Adicionar ao carrinho' : 'Saiba mais'}
             </BotaoSobre>
         </Card>

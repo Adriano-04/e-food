@@ -8,7 +8,7 @@ export const Card = styled.div<Omit<Props, 'nome' | 'descricao' | 'imagem' | 'no
     border: 1px solid ${Cores.laranja};
     color: ${props => props.estilo === 'perfil' ? Cores.fundo : Cores.laranja};
     background-color: ${props => props.estilo === 'perfil' ? Cores.laranja : Cores.branco};
-    height: ${props => props.estilo === 'perfil' ? '350px' : '400px'};
+    height: ${props => props.estilo === 'perfil' ? '354px' : '400px'};
     overflow: hidden;
     position: relative;
     flex-direction: column;
@@ -38,16 +38,25 @@ export const BotaoSobre = styled.a<Omit<Props, 'nome' | 'descricao' | 'imagem' |
     background-color: ${props => props.estilo === 'perfil' ? Cores.fundo : Cores.laranja};
     font-size: 14px;
     font-weight: bold;
+    text-decoration: none;
     margin-left: 8px;
     cursor: pointer;
-    width: ${props => props.estilo === 'perfil' ? '100%' : '92px'};
+    width: 92px;
+    display: block;
 `
-export const Tag = styled(BotaoSobre)`
-    font-size: 12px;
+export const Tag = styled.div`
+    background-color: ${Cores.laranja};
+    font-weight: bold;
     margin: 0 8px;
+    height: 26px;
+    padding: 6px 8px;
 `
 export const Tags = styled.div`
+    display: flex;
     position: absolute;
+    font-size: 12px;
+    color: ${Cores.fundo};
+    line-height: 14px;
     top: 16px;
     right: 16px;
 `
