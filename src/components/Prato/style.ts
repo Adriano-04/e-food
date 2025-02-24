@@ -16,7 +16,11 @@ export const Card = styled.div<Omit<Props, 'nome' | 'descricao' | 'imagem' | 'no
 export const TextoPrincipal = styled.h3`
     font-size: 18px;
     font-weight: 700;
+    padding-top: 4px;
     margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 `
 
 export const Div = styled.div`
@@ -24,7 +28,7 @@ export const Div = styled.div`
     justify-content: space-between;
     align-items: center;
     margin-left: 8px;
-    width: 100%;
+    width: 95%;
 `
 export const Texto = styled.p`
     font-size: 14px;
