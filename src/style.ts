@@ -26,3 +26,10 @@ export const Container = styled.div`
     width: 100%;
     margin: 0 auto;
 `
+
+export const Texto = styled.p`
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+    margin: 16px 8px;
+`

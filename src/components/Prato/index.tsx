@@ -1,6 +1,7 @@
-import { BotaoSobre, Card, Div, Tag, Tags, Texto, TextoPrincipal } from "./style";
+import { BotaoSobre, Card, Div, Tag, Tags, TextoPrincipal } from "./style";
 import Estrela from '../../assets/images/star_favorite.svg'
 import { Link } from "react-router-dom";
+import { Texto } from "../../style";
 
 export type Props = {
     nome: string

@@ -29,7 +29,7 @@ export const Textos = styled.p`
 `
 
 export const Imagem = styled.img`
-    height: 210px;
+    height: 280px;
     width: 100%;
     margin-bottom: 60px;
 
