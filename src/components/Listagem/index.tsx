@@ -1,64 +1,25 @@
-import Prato from "../Prato";
+import { Restaurante } from "../../pages/Home";
+import Prato from "../Restaurante";
 import { Lista } from "./style";
-import Sushi from '../../assets/images/imagem.png'
-import Massa from '../../assets/images/image 1.png'
 
-const Listagem = () => (
+type Props = {
+    pratos: Restaurante[]
+}
+
+const Listagem = ({ pratos }: Props) => (
     <Lista>
-    <li>
-        <Prato 
-            nota="4.9" 
-            nome="Hioki Sushi" 
-            imagem={Sushi} 
-            descricao="Peça já o melhor da culinária japonesa no conforto da sua casa! Sushis frescos, sashimis deliciosos e pratos quentes irresistíveis. Entrega rápida, embalagens cuidadosas e qualidade garantida. Experimente o Japão sem sair do lar com nosso delivery!" 
-            infos={['Destaque da semana','Japonesa']}
-        />
-    </li>
-    <li>
-        <Prato 
-            nota="4.6" 
-            nome="La Dolce Vita Trattoria" 
-            imagem={Massa} 
-            descricao="A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!" 
-            infos={['Italiana']}
-        />
-    </li>
-    <li>
-        <Prato 
-            nota="4.6" 
-            nome="La Dolce Vita Trattoria" 
-            imagem={Massa} 
-            descricao="A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!" 
-            infos={['Italiana']}
-        />
-    </li>
-    <li>
-        <Prato 
-            nota="4.6" 
-            nome="La Dolce Vita Trattoria" 
-            imagem={Massa} 
-            descricao="A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!" 
-            infos={['Italiana']}
-        />
-    </li>
-    <li>
-        <Prato 
-            nota="4.6" 
-            nome="La Dolce Vita Trattoria" 
-            imagem={Massa} 
-            descricao="A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!" 
-            infos={['Italiana']}
-        />
-    </li>
-    <li>
-        <Prato 
-            nota="4.6" 
-            nome="La Dolce Vita Trattoria" 
-            imagem={Massa} 
-            descricao="A La Dolce Vita Trattoria leva a autêntica cozinha italiana até você! Desfrute de massas caseiras, pizzas deliciosas e risotos incríveis, tudo no conforto do seu lar. Entrega rápida, pratos bem embalados e sabor inesquecível. Peça já!" 
-            infos={['Italiana']}
-        />
-    </li>
+    {pratos.map((prato) => (
+        <li key={prato.id}>
+            <Prato
+                id={prato.id} 
+                avaliacao={prato.avaliacao}
+                titulo={prato.titulo}
+                capa={prato.capa} 
+                descricao={prato.descricao}
+                destacado={prato.destacado}
+            />
+        </li>
+    ))}
     </Lista>
 
 )

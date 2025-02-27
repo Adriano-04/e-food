@@ -1,60 +1,34 @@
 import styled from "styled-components";
 import { Cores } from "../../style";
-import { Props } from ".";
 
-export const Card = styled.div<Omit<Props, 'nome' | 'descricao' | 'imagem' | 'nota'>>`
-    width: ${props => props.estilo === 'perfil' ? '320px' : '470px'};
-    max-width: 100%;
-    border: 1px solid ${Cores.laranja};
-    color: ${props => props.estilo === 'perfil' ? Cores.fundo : Cores.laranja};
-    background-color: ${props => props.estilo === 'perfil' ? Cores.laranja : Cores.branco};
-    height: ${props => props.estilo === 'perfil' ? '358px' : '405px'};
-    overflow: hidden;
-    position: relative;
-    flex-direction: column;
-`
-export const TextoPrincipal = styled.h3`
-    font-size: 18px;
-    font-weight: 700;
-    padding-top: 4px;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 4px;
-`
-
-export const Div = styled.div`
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-left: 8px;
-    width: 95%;
-`
-export const BotaoSobre = styled.a<Omit<Props, 'nome' | 'descricao' | 'imagem' | 'nota'>>`
-    color: ${props => props.estilo === 'perfil' ? Cores.laranja : Cores.fundo};
-    padding: 6px;
-    margin: 6px;
-    background-color: ${props => props.estilo === 'perfil' ? Cores.fundo : Cores.laranja};
-    font-size: 14px;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    width: 92px;
-    display: block;
-`
-export const Tag = styled.div`
+export const Card = styled.div`
     background-color: ${Cores.laranja};
-    font-weight: bold;
-    margin: 0 8px;
-    height: 26px;
-    padding: 6px 8px;
+    color: ${Cores.fundoFooter};
+    height: 370px;
+    width: 320px;
+    flex-direction: column;
+
+    img {
+        width: 300px;
+        height: 170px;
+        display: block;
+        margin: 0 auto;
+        padding-top: 8px;
+    }
+
+    h3 {
+        margin-top: 4px;
+        margin-left: 8px;
+    }
 `
-export const Tags = styled.div`
-    display: flex;
-    position: absolute;
-    font-size: 12px;
-    color: ${Cores.fundo};
-    line-height: 14px;
-    top: 16px;
-    right: 16px;
+
+export const Button = styled.div`
+    cursor: pointer;
+    text-align: center;
+    width: 95%;
+    margin: 8px;
+    background-color: ${Cores.fundoFooter};
+    color: ${Cores.laranja};
+    padding: 4px;
+    font-weight: bold;
 `
