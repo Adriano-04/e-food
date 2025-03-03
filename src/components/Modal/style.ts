@@ -41,6 +41,22 @@ export const Overlay = styled.div`
     }
 `
 
+export const CloseButton = styled.button`
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    margin: 8px;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    img {
+        width: 16px;
+        height: 16px;
+        margin: 0;
+    }
+`
+
 export const Button = styled.button`
     cursor: pointer;
     padding: 4px 6px;

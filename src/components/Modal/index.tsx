@@ -1,6 +1,7 @@
 import { Restaurante } from '../../pages/Home'
 import { Texto } from '../../style'
-import { Button, Modal, Overlay } from './style'
+import { Button, CloseButton, Modal, Overlay } from './style'
+import close from '../../assets/images/close.png'
 
 type Props = {
     prato?: Restaurante['cardapio'][0]
@@ -29,6 +30,9 @@ const ModalPerfil = ({ fechar, prato}: Props) => {
             </Texto>
             <Button>Adicionar ao carrinho - {formataPrecos(prato?.preco)}</Button>
         </div>
+        <CloseButton onClick={fechar}>
+            <img src={close} alt="fechar" />
+        </CloseButton>
         </Modal>
         <Overlay onClick={fechar}></Overlay>
     </>
