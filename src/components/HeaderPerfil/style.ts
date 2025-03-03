@@ -28,7 +28,22 @@ export const Textos = styled.p`
     }
 `
 
-export const Imagem = styled.img`
+export const TextoTitulo = styled.h2`
+    color: ${Cores.branco};
+    font-size: 32px;
+    font-weight: 100;
+    line-height: 32px;
+    position: absolute;
+    top: 25px;
+`
+
+export const TextoTituloPrincipal = styled(TextoTitulo)`
+    font-weight: bold;
+    top: 214px;
+`
+
+export const Hero = styled.div`
+    position: relative;
     height: 280px;
     width: 100%;
     margin-bottom: 60px;

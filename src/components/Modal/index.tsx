@@ -7,6 +7,13 @@ type Props = {
     fechar: () => void
 }
 
+export const formataPrecos = (preco = 0) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(preco)
+  }
+
 const ModalPerfil = ({ fechar, prato}: Props) => {
 
     return (
@@ -20,7 +27,7 @@ const ModalPerfil = ({ fechar, prato}: Props) => {
             <br />
             Serve: {prato?.porcao}
             </Texto>
-            <Button>Adicionar ao carrinho - R$ {prato?.preco}</Button>
+            <Button>Adicionar ao carrinho - {formataPrecos(prato?.preco)}</Button>
         </div>
         </Modal>
         <Overlay onClick={fechar}></Overlay>

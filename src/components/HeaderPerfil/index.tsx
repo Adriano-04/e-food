@@ -1,7 +1,7 @@
-import { Header, HeaderItems, Imagem, Textos } from "./style";
+import { Header, HeaderItems, Hero, Textos, TextoTitulo, TextoTituloPrincipal } from "./style";
 import HeroImg from '../../assets/images/fundo.png'
 import logoImg from '../../assets/images/logo.svg'
-import apresentacao from '../../assets/images/apresentacao.png'
+import apresentacao from '../../assets/images/imagem_de_fundo.png'
 
 const HeaderPerfil = () => (
 
@@ -21,7 +21,14 @@ const HeaderPerfil = () => (
             </li>
         </HeaderItems>
     </Header>
-    <Imagem src={apresentacao} alt="La dolce" />
+        <Hero style={{ background: `url(${apresentacao})`}}>
+            <div className="container">
+                <TextoTitulo>
+                    Italiana
+                </TextoTitulo>
+                <TextoTituloPrincipal>La Dolce Vita Trattoria</TextoTituloPrincipal>
+            </div>
+        </Hero>
     </>
 )
 

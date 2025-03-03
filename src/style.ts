@@ -19,6 +19,12 @@ export const GlobalStyle = createGlobalStyle`
     body {
         background-color: ${Cores.fundo};
     }
+
+    .container {
+        max-width: 1024px;
+        width: 100%;
+        margin: 0 auto;
+    }
 `
 
 export const Container = styled.div`
