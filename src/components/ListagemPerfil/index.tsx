@@ -1,34 +1,34 @@
 import { Item, Lista} from "./style";
 import Prato from '../Prato'
 import { useState } from "react";
-import { Restaurante } from "../../pages/Home";
 import ModalPerfil from "../Modal";
 
 type Props = {
-    cardapio: Restaurante['cardapio']
+    restaurante: Restaurante
 }
 
-const ListagemPerfil = ({ cardapio }: Props) => {
+const ListagemPerfil = ({ restaurante }: Props) => {
     const [modal, setModal] = useState(false)
-    const [pratoModal , setPratoModal] = useState<Restaurante['cardapio'][0]>()
+    const [pratoModal , setPratoModal] = useState<Restaurante['cardapio'][0] | null>(null)
+
+    const abreModal = (prato: Restaurante['cardapio'][0]) => {
+        setPratoModal(prato)
+        setModal(true)
+    }
 
     return (
         <Lista>
-        {cardapio.map((prato) => (
+        {restaurante.cardapio.map((prato) => (
             <Item key={prato.id}>
                 <Prato
                     nome={prato.nome}
                     descricao={prato.descricao}
                     imagem={prato.foto}
-                    modalVisible={() => 
-                        {
-                            setPratoModal(prato);
-                            setModal(true);
-                        }}
+                    modalVisible={() => abreModal(prato)}
                 />
             </Item>
         ))}
-        {modal && (
+        {modal && pratoModal && (
             <ModalPerfil prato={pratoModal} fechar={() => setModal(false)}/>
         )}
         </Lista>

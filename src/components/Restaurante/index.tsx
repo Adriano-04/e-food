@@ -44,7 +44,7 @@ const Restaurante = ({titulo, descricao, capa, avaliacao, infos, destacado, id}:
              )}
         </Div>
         <Texto>{getDescricao(descricao)}</Texto>
-        <BotaoSobre as={Link} to={`/perfil/${id}`}>
+        <BotaoSobre as={Link} to={`/cardapio/${id}`}>
              Saiba mais
         </BotaoSobre>
     </Card>

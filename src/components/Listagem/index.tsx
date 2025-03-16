@@ -1,4 +1,3 @@
-import { Restaurante } from "../../pages/Home";
 import Prato from "../Restaurante";
 import { Lista } from "./style";
 

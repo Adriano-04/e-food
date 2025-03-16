@@ -43,13 +43,8 @@ export const TextoTituloPrincipal = styled(TextoTitulo)`
 `
 
 export const Hero = styled.div`
+    background-repeat: no-repeat !important;
     position: relative;
     height: 280px;
-    width: 100%;
     margin-bottom: 60px;
-
-    @media (max-width: 768px) {
-        width: auto;
-        height: 150px;
-    }
 `
