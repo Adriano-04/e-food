@@ -1,9 +1,10 @@
-import { Header, HeaderItems, Hero, Textos, TextoTitulo, TextoTituloPrincipal } from "./style";
+import { Header, HeaderItems, Hero, LinkA, TextoTitulo, TextoTituloPrincipal } from "./style";
 import HeroImg from '../../assets/images/fundo.png'
 import logoImg from '../../assets/images/logo.svg'
 import apresentacao from '../../assets/images/imagem_de_fundo.png'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootReducer } from "../../store";
+import { open } from "../../store/Reducers/Carrinho";
 
 type Props = {
     restaurante: Restaurante
@@ -12,21 +13,27 @@ type Props = {
 const HeaderPerfil = ({ restaurante }: Props) => {
     const { items } = useSelector((state: RootReducer) => state.carrinho)
 
+    const dispatch = useDispatch()
+
+    const openCart = () => {
+        dispatch(open())
+    }
+
     return (
 
         <>
         <Header style={{ background: `url(${HeroImg})`}}>
             <HeaderItems>
                 <li>
-                    <Textos>Restaurantes</Textos>
+                    <LinkA>Restaurantes</LinkA>
                 </li>
                 <li>
                     <img src={logoImg} alt="Logo efood" />
                 </li>
                 <li>
-                    <Textos>
+                    <LinkA onClick={() => openCart()}>
                         {items.length} Produtos(s) no carrinho
-                    </Textos>
+                    </LinkA>
                 </li>
             </HeaderItems>
         </Header>

@@ -1,5 +1,5 @@
 import { Texto } from "../../style"
-import { getDescricao } from "../Restaurante"
+import { getDescricao } from "../../utils/index"
 import { Button, Card } from "./style"
 
 type Props = {

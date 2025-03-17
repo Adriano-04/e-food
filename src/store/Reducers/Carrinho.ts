@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type CarrinhoState = {
-    items: Restaurante[]
+    items: Restaurante['cardapio'][0][]
     isOpen: boolean
 }
 
@@ -14,7 +14,7 @@ const carrinhoSlice = createSlice({
     name: 'carrinho',
     initialState,
     reducers: {
-        add: (state, action: PayloadAction<Restaurante>) => {
+        add: (state, action: PayloadAction<Restaurante['cardapio'][0]>) => {
             const prato = state.items.find((item) => item.id === action.payload.id) 
 
             if (!prato) {
@@ -22,6 +22,9 @@ const carrinhoSlice = createSlice({
             } else {
                 alert('prato já adicionado')
             }
+        },
+        remove: (state, action: PayloadAction<Restaurante['cardapio'][0]>) => {
+            state.items = state.items.filter((item) => item.id !== action.payload.id)
         },
         open: (state) => {
             state.isOpen = true
@@ -32,5 +35,5 @@ const carrinhoSlice = createSlice({
     }
 })
 
-export const { add, close, open } = carrinhoSlice.actions
+export const { add, close, open, remove } = carrinhoSlice.actions
 export default carrinhoSlice.reducer

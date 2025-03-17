@@ -3,7 +3,7 @@ import { BotaoLixeira, CartContainer, CartItem, Textos, Titulo } from "./style"
 import lixeira from '../../assets/images/lixeira-de-reciclagem.png'
 import { useDispatch, useSelector } from "react-redux"
 import { RootReducer } from "../../store"
-import { close } from "../../store/Reducers/Carrinho"
+import { close, remove } from "../../store/Reducers/Carrinho"
 import { formataPrecos } from "../../utils"
 
 const Carrinho = () => {
@@ -12,6 +12,10 @@ const Carrinho = () => {
 
     const closeCart = () => {
         dispatch(close())
+    }
+
+    const removeItem = (item: Restaurante['cardapio'][0]) => {
+        dispatch(remove(item))
     }
 
     const total = items.reduce((acc, item) => acc + item.preco, 0)
@@ -30,7 +34,7 @@ const Carrinho = () => {
                                     <Titulo>{item.nome}</Titulo>
                                     <p>{formataPrecos(item.preco)}</p>
                                 </div>
-                                <BotaoLixeira>
+                                <BotaoLixeira onClick={() => removeItem(item)}>
                                     <img src={lixeira} alt="lixeira para remover item" />
                                 </BotaoLixeira>
                             </CartItem>

@@ -17,11 +17,12 @@ export const HeaderItems = styled.ul`
     }
 `
 
-export const Textos = styled.p`
+export const Link = styled.a`
     font-size: 18px;
     text-align: center;
     font-weight: bold;
     color: ${Cores.laranja};
+    cursor: pointer;
 
     @media (max-width: 768px) {
         font-size: 12px;
