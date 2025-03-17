@@ -2,6 +2,7 @@ import { BotaoSobre, Card, Div, Tag, Tags, TextoPrincipal } from "./style";
 import Estrela from '../../assets/images/star_favorite.svg'
 import { Link } from "react-router-dom";
 import { Texto } from "../../style";
+import { getDescricao } from "../../utils";
 
 export type Props = {
     id: number
@@ -13,13 +14,6 @@ export type Props = {
     destacado?: boolean
 }
 
-export const getDescricao = (descricaoSlice: string) => {
-    if (descricaoSlice.length > 210) {
-        return descricaoSlice.slice(0,210) + '...'
-    }
-
-    return descricaoSlice
-}
 
 const Restaurante = ({titulo, descricao, capa, avaliacao, infos, destacado, id}: Props) => {
 

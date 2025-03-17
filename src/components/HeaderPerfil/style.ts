@@ -17,7 +17,7 @@ export const HeaderItems = styled.ul`
     }
 `
 
-export const Link = styled.a`
+export const TextoNav = styled.a`
     font-size: 18px;
     text-align: center;
     font-weight: bold;

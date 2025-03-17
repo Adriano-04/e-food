@@ -1,4 +1,4 @@
-import { Header, HeaderItems, Hero, LinkA, TextoTitulo, TextoTituloPrincipal } from "./style";
+import { Header, HeaderItems, Hero, TextoNav, TextoTitulo, TextoTituloPrincipal } from "./style";
 import HeroImg from '../../assets/images/fundo.png'
 import logoImg from '../../assets/images/logo.svg'
 import apresentacao from '../../assets/images/imagem_de_fundo.png'
@@ -25,15 +25,15 @@ const HeaderPerfil = ({ restaurante }: Props) => {
         <Header style={{ background: `url(${HeroImg})`}}>
             <HeaderItems>
                 <li>
-                    <LinkA>Restaurantes</LinkA>
+                    <TextoNav>Restaurantes</TextoNav>
                 </li>
                 <li>
                     <img src={logoImg} alt="Logo efood" />
                 </li>
                 <li>
-                    <LinkA onClick={() => openCart()}>
+                    <TextoNav onClick={() => openCart()}>
                         {items.length} Produtos(s) no carrinho
-                    </LinkA>
+                    </TextoNav>
                 </li>
             </HeaderItems>
         </Header>
