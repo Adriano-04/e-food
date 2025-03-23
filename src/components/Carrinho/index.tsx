@@ -1,18 +1,18 @@
-import { Button, Overlay } from "../Modal/style"
-import { BotaoLixeira, CartContainer, CartItem, Textos, Titulo } from "./style"
+import { Button} from "../Modal/style"
+import { BotaoLixeira, CartItem, Textos, Titulo } from "./style"
 import lixeira from '../../assets/images/lixeira-de-reciclagem.png'
 import { useDispatch, useSelector } from "react-redux"
 import { RootReducer } from "../../store"
-import { close, remove } from "../../store/Reducers/Carrinho"
+import { remove } from "../../store/Reducers/Carrinho"
 import { formataPrecos } from "../../utils"
 
-const Carrinho = () => {
-    const { items, isOpen } = useSelector((state: RootReducer) => state.carrinho)
-    const dispatch = useDispatch()
+type Props = {
+    continuar: () => void
+} 
 
-    const closeCart = () => {
-        dispatch(close())
-    }
+const Carrinho = ({ continuar }: Props) => {
+    const { items } = useSelector((state: RootReducer) => state.carrinho)
+    const dispatch = useDispatch()
 
     const removeItem = (item: Restaurante['cardapio'][0]) => {
         dispatch(remove(item))
@@ -22,13 +22,12 @@ const Carrinho = () => {
 
     return (
         <>
-        {isOpen ? (
-            <>
-            <Overlay onClick={closeCart}/>
-                <CartContainer>
+
+            {items.length > 0 && (
+                <>
                     <ul>
                         {items.map((item) => (
-                            <CartItem>
+                            <CartItem key={item.id}>
                                 <img src={item.foto} alt="" />
                                 <div>
                                     <Titulo>{item.nome}</Titulo>
@@ -44,12 +43,13 @@ const Carrinho = () => {
                         <Textos>Valor total</Textos>
                         <Textos>{formataPrecos(total)}</Textos>
                     </div>
-                    <Button>Continuar com a entrega</Button>
-                </CartContainer>
-            </>
-        ) : (
-            null
-        )}
+                    <Button onClick={continuar}>Continuar com a entrega</Button>
+                </>
+            )}
+
+            {items.length === 0 && (
+                <Textos>Não possui itens no carrinho</Textos>
+            )}
         </>
     )
 }

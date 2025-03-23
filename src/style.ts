@@ -4,7 +4,8 @@ export const Cores = {
     laranja: '#E66767',
     branco: '#fff',
     fundo: '#FFF8F2',
-    fundoFooter: '#FFEBD9'
+    fundoFooter: '#FFEBD9',
+    cinza: '#4B4B4B'
 }
 
 export const GlobalStyle = createGlobalStyle`

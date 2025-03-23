@@ -29,7 +29,6 @@ export const Modal = styled.div`
 
 export const Overlay = styled.div`
     position: fixed;
-    display: flex;
     top: 0;
     left: 0;
     width: 100vw;

@@ -5,6 +5,7 @@ import apresentacao from '../../assets/images/imagem_de_fundo.png'
 import { useDispatch, useSelector } from "react-redux";
 import { RootReducer } from "../../store";
 import { open } from "../../store/Reducers/Carrinho";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
     restaurante: Restaurante
@@ -12,6 +13,7 @@ type Props = {
 
 const HeaderPerfil = ({ restaurante }: Props) => {
     const { items } = useSelector((state: RootReducer) => state.carrinho)
+    const navigate = useNavigate()
 
     const dispatch = useDispatch()
 
@@ -25,7 +27,7 @@ const HeaderPerfil = ({ restaurante }: Props) => {
         <Header style={{ background: `url(${HeroImg})`}}>
             <HeaderItems>
                 <li>
-                    <TextoNav>Restaurantes</TextoNav>
+                    <TextoNav onClick={() => navigate('/')}>Restaurantes</TextoNav>
                 </li>
                 <li>
                     <img src={logoImg} alt="Logo efood" />

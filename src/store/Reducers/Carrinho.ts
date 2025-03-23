@@ -26,6 +26,9 @@ const carrinhoSlice = createSlice({
         remove: (state, action: PayloadAction<Restaurante['cardapio'][0]>) => {
             state.items = state.items.filter((item) => item.id !== action.payload.id)
         },
+        clear: (state) => {
+            state.items = []
+          },
         open: (state) => {
             state.isOpen = true
         },
@@ -35,5 +38,5 @@ const carrinhoSlice = createSlice({
     }
 })
 
-export const { add, close, open, remove } = carrinhoSlice.actions
+export const { add, close, open, remove, clear } = carrinhoSlice.actions
 export default carrinhoSlice.reducer

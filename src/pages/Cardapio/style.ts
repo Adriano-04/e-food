@@ -1,13 +1,19 @@
 import styled from "styled-components";
+import { Cores } from "../../style";
 
 
-export const Imagem = styled.img`
-    height: 210px;
-    width: 100%;
-    margin-bottom: 60px;
+export const MessagemCheckout = styled.div`
+    color: ${Cores.fundoFooter};
+    display: block !important;
 
-    @media (max-width: 768px) {
-        width: auto;
-        height: 150px;
+    h3 {
+        line-height: 100%;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0;
+        margin-top: 18px;
     }
 `
