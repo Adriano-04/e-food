@@ -7,8 +7,9 @@ import { formataPrecos } from "../../utils"
 import { useFormik } from "formik"
 import { usePurchaseMutation } from "../../services/api"
 import { useEffect } from "react"
-import ReactInputMask from "react-input-mask"
-import { clear } from "../../store/Reducers/Carrinho"
+import MaskedInput from 'react-text-mask'
+import { clear, setCheckoutId } from "../../store/Reducers/Carrinho"
+
 
 type Props = {
     tipo: 'entrega' | 'pagamento'
@@ -18,8 +19,8 @@ type Props = {
 
 const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
     const { items } = useSelector((state: RootReducer) => state.carrinho)
-    const [purchase, {isSuccess}] = usePurchaseMutation()
-    const dispach = useDispatch()
+    const [purchase, {isSuccess, data}] = usePurchaseMutation()
+    const dispatch = useDispatch()
 
     const total = items.reduce((acc, item) => acc + item.preco, 0)
 
@@ -153,9 +154,10 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
 
     useEffect(() => {
         if (isSuccess) {
-            dispach(clear())
+            dispatch(setCheckoutId(data.orderId))
+            dispatch(clear())
         }
-    }, [dispach, isSuccess])
+    }, [dispatch, isSuccess, data])
 
     return (
         <>
@@ -199,7 +201,7 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
                         <Row>
                             <div>
                                 <FormLabel htmlFor="cep">CEP</FormLabel>
-                                <ReactInputMask 
+                                <MaskedInput 
                                     width="220px"
                                     type="text"
                                     id="cep"
@@ -208,12 +210,12 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
                                     onChange={formEntrega.handleChange}
                                     onBlur={formEntrega.handleBlur}
                                     className={checkForms('zipCode') ? 'error' : ''}
-                                    mask="99999-999"
+                                    mask={[/\d/,/\d/,/\d/,/\d/,/\d/,'-',/\d/,/\d/,/\d/]}
                                 />
                             </div>
                             <div>
                                 <FormLabel htmlFor="numero">Número</FormLabel>
-                                <input
+                                <MaskedInput
                                     width="85px" 
                                     type="text" 
                                     id="numero"
@@ -222,6 +224,7 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
                                     onChange={formEntrega.handleChange}
                                     onBlur={formEntrega.handleBlur}
                                     className={checkForms('number') ? 'error' : ''}
+                                    mask={[/\d/,/\d/,/\d/,/\d/,/\d/,/\d/]}
                                 />
                             </div>
                         </Row>
@@ -254,7 +257,7 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
                         <Row>
                             <div>
                                 <FormLabel htmlFor="numero-cartao">Número no cartão</FormLabel>
-                                <input 
+                                <MaskedInput 
                                 type="text" 
                                 id="numero-cartao"
                                 name="cardNumber"
@@ -262,11 +265,12 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
                                 onChange={formPagamento.handleChange}
                                 onBlur={formPagamento.handleBlur}
                                 className={checkForms('cardNumber') ? 'error' : ''}
+                                mask={[/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/]}
                             />
                             </div>
                             <div>
                                 <FormLabel htmlFor="cvv">CVV</FormLabel>
-                                <input 
+                                <MaskedInput 
                                 type="text" 
                                 id="cvv" 
                                 name="code"
@@ -274,13 +278,14 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
                                 onChange={formPagamento.handleChange}
                                 onBlur={formPagamento.handleBlur}
                                 className={checkForms('code') ? 'error' : ''}
+                                mask={[/\d/,/\d/,/\d/]}
                             />
                             </div>
                         </Row>
                         <Row>
                             <div>
                                 <FormLabel htmlFor="mesVencimento">Mês do vencimento</FormLabel>
-                                <input 
+                                <MaskedInput 
                                     type="text" 
                                     id="mesVencimento"
                                     name="expiresMonth"
@@ -288,11 +293,12 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
                                     onChange={formPagamento.handleChange}
                                     onBlur={formPagamento.handleBlur}
                                     className={checkForms('expiresMonth') ? 'error' : ''}
+                                    mask={[/\d/,/\d/]}
                                 />
                             </div>
                             <div>
                                 <FormLabel htmlFor="anoVencimento">Ano do vencimento</FormLabel>
-                                <input 
+                                <MaskedInput 
                                 type="text" 
                                 id="anoVencimento" 
                                 name="expiresYear"
@@ -300,6 +306,7 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
                                 onChange={formPagamento.handleChange}
                                 onBlur={formPagamento.handleBlur}
                                 className={checkForms('expiresYear') ? 'error' : ''}
+                                mask={[/\d/,/\d/]}
                             />
                             </div> 
                         </Row>

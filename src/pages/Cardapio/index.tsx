@@ -8,11 +8,14 @@ import Carrinho from '../../components/Carrinho'
 import Formulario from '../../components/Formulario'
 import { MessagemCheckout } from './style'
 import { Button } from '../../components/Modal/style'
+import { useSelector } from 'react-redux'
+import { RootReducer } from '../../store'
 
 const Cardapio = () => {
     const [restaurante, setRestaurante] = useState<Restaurante>()
     const [etapas, setEtapas] = useState(1)
     const { id } = useParams()
+    const { checkoutId } = useSelector((state: RootReducer) => state.carrinho)
 
     const avancar = () => {
         setEtapas((prev) => prev + 1)
@@ -51,7 +54,7 @@ const Cardapio = () => {
 
                     <div style={{display: etapas === 4 ? 'block' : 'none'}}>
                             <MessagemCheckout>
-                                <h3>Pedido realizado - OrderID</h3>
+                                <h3>Pedido realizado - {checkoutId}</h3>
                                 <p>
                                     Estamos felizes em informar que seu pedido já está em processo
                                     de preparação e, em breve, será entregue no endereço fornecido.
