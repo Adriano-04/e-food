@@ -46,3 +46,22 @@ declare type CheckOut = {
         }
     }
 }
+
+declare module 'react-text-mask' {
+    import { Component } from 'react'
+
+    interface MaskedInputProps {
+        mask: (string | RegExp)[]
+        guide?: boolean
+        placeholderChar?: string
+        keepCharPositions?: boolean
+        showMask?: boolean
+        value?: string
+        onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+        onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        [key: string]: any
+    }
+
+    export default class MaskedInput extends Component<MaskedInputProps> {}
+}

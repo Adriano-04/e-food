@@ -6,8 +6,8 @@ export const formataPrecos = (preco = 0) => {
   }
 
 export const getDescricao = (descricaoSlice: string) => {
-    if (descricaoSlice.length > 210) {
-        return descricaoSlice.slice(0,210) + '...'
+    if (descricaoSlice.length > 200) {
+        return descricaoSlice.slice(0,200) + '...'
     }
 
     return descricaoSlice

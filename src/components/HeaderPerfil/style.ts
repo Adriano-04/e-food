@@ -44,6 +44,7 @@ export const TextoTituloPrincipal = styled(TextoTitulo)`
 `
 
 export const Hero = styled.div`
+    background-size: cover !important;
     background-repeat: no-repeat !important;
     position: relative;
     height: 280px;

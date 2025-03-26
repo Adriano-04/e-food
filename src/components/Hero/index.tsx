@@ -4,11 +4,11 @@ import logoImg from '../../assets/images/logo.svg'
 
 const Hero = () => (
     <Banner style={{ background: `url(${HeroImg})`}}>
-        <Logo src={logoImg} alt="" />
-        <Titulo>
-            Viva experiências gastronômicas <br /> 
-            no conforto da sua casa
-        </Titulo>
+            <Logo src={logoImg} alt="" />
+            <Titulo>
+                Viva experiências gastronômicas <br /> 
+                no conforto da sua casa
+            </Titulo>
     </Banner>
 )
 

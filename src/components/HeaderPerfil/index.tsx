@@ -1,7 +1,6 @@
 import { Header, HeaderItems, Hero, TextoNav, TextoTitulo, TextoTituloPrincipal } from "./style";
 import HeroImg from '../../assets/images/fundo.png'
 import logoImg from '../../assets/images/logo.svg'
-import apresentacao from '../../assets/images/imagem_de_fundo.png'
 import { useDispatch, useSelector } from "react-redux";
 import { RootReducer } from "../../store";
 import { open } from "../../store/Reducers/Carrinho";
@@ -39,7 +38,7 @@ const HeaderPerfil = ({ restaurante }: Props) => {
                 </li>
             </HeaderItems>
         </Header>
-        <Hero style={{ background: `url(${apresentacao})`}}>
+        <Hero style={{ background: `url(${restaurante.capa})`}}>
             <div className="container">
                 <TextoTitulo>
                     {restaurante.destacado}
