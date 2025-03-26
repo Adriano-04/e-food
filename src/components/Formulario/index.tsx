@@ -7,7 +7,7 @@ import { formataPrecos } from "../../utils"
 import { useFormik } from "formik"
 import { usePurchaseMutation } from "../../services/api"
 import { useEffect } from "react"
-import MaskedInput from 'react-text-mask'
+import MaskedInput from 'react-input-mask'
 import { clear, setCheckoutId } from "../../store/Reducers/Carrinho"
 
 
@@ -210,7 +210,7 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
                                     onChange={formEntrega.handleChange}
                                     onBlur={formEntrega.handleBlur}
                                     className={checkForms('zipCode') ? 'error' : ''}
-                                    mask={[/\d/,/\d/,/\d/,/\d/,/\d/,'-',/\d/,/\d/,/\d/]}
+                                    mask='99999-999'
                                 />
                             </div>
                             <div>
@@ -224,7 +224,7 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
                                     onChange={formEntrega.handleChange}
                                     onBlur={formEntrega.handleBlur}
                                     className={checkForms('number') ? 'error' : ''}
-                                    mask={[/\d/,/\d/,/\d/,/\d/,/\d/,/\d/]}
+                                    mask='999999'
                                 />
                             </div>
                         </Row>
@@ -265,7 +265,7 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
                                 onChange={formPagamento.handleChange}
                                 onBlur={formPagamento.handleBlur}
                                 className={checkForms('cardNumber') ? 'error' : ''}
-                                mask={[/\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/, ' ', /\d/, /\d/, /\d/, /\d/]}
+                                mask='9999 9999 9999 9999'
                             />
                             </div>
                             <div>
@@ -278,7 +278,7 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
                                 onChange={formPagamento.handleChange}
                                 onBlur={formPagamento.handleBlur}
                                 className={checkForms('code') ? 'error' : ''}
-                                mask={[/\d/,/\d/,/\d/]}
+                                mask='999'
                             />
                             </div>
                         </Row>
@@ -293,7 +293,7 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
                                     onChange={formPagamento.handleChange}
                                     onBlur={formPagamento.handleBlur}
                                     className={checkForms('expiresMonth') ? 'error' : ''}
-                                    mask={[/\d/,/\d/]}
+                                    mask='99'
                                 />
                             </div>
                             <div>
@@ -306,7 +306,7 @@ const Formulario = ({ tipo, voltarEtapa, ProximaEtapa }: Props) => {
                                 onChange={formPagamento.handleChange}
                                 onBlur={formPagamento.handleBlur}
                                 className={checkForms('expiresYear') ? 'error' : ''}
-                                mask={[/\d/,/\d/]}
+                                mask='99'
                             />
                             </div> 
                         </Row>
